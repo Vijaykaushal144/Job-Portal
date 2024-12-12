@@ -1,6 +1,7 @@
 package com.example.CompanyService.Company.Service;
 
 
+import com.example.CompanyService.Company.Dto.ReviewMessagingDto;
 import com.example.CompanyService.Company.Entity.Company;
 import com.example.CompanyService.Company.Repository.CompanyRepository;
 import org.springframework.stereotype.Service;
@@ -56,4 +57,9 @@ public class CompanyService {
         return false;
     }
 
+    public void updateCompanyRating(ReviewMessagingDto reviewMessagingDto) {
+        System.out.println(reviewMessagingDto.getDescription());
+
+
+    }
 }

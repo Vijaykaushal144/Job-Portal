@@ -3,6 +3,7 @@ package com.example.ReviewService.Review.Controller;
 
 import com.example.ReviewService.Review.Entity.Review;
 import com.example.ReviewService.Review.Service.ReviewService;
+import com.example.ReviewService.Review.messaging.ReviewMessageProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,9 @@ public class ReviewController {
 
     @Autowired
     ReviewService reviewService;
+
+    @Autowired
+    ReviewMessageProducer reviewMessageProducer;
 
     @GetMapping
     public ResponseEntity<List<Review>> getReview(@RequestParam int cId) {
@@ -33,6 +37,10 @@ public class ReviewController {
     public ResponseEntity<String> createReview(@RequestParam int cId, @RequestBody Review review) {
         boolean res = reviewService.createReview(cId, review);
         if (res) {
+
+            //it for sending message to company service.
+         //   reviewMessageProducer.sendMessage(review);
+
             return new ResponseEntity<>("Created Successfully", HttpStatus.OK);
         }
         return new ResponseEntity<>("Note Created ", HttpStatus.NOT_FOUND);
