@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>ReviewService</artifactId>
+	<artifactId>JobService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ReviewService</name>
 	<description>Demo project for Spring Boot</description>
@@ -42,6 +42,12 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+
+<!--		dependency for liquibase-->
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
 		</dependency>
 
 		<dependency>
@@ -87,6 +93,9 @@
 
 	<build>
 		<plugins>
+
+<!--			plugin for liquibase-->
+
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
