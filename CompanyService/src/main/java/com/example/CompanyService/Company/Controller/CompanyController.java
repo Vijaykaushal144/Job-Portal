@@ -34,6 +34,7 @@ public class CompanyController {
         return  new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+
     @PutMapping("/updateCompany/{cid}")
     public ResponseEntity<String> updateCompany(@PathVariable int cid, @RequestBody Company company) {
         boolean res = companyService.updateCompany(cid, company);
